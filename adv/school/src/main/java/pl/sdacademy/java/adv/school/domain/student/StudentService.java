@@ -15,7 +15,6 @@ public class StudentService {
 
     public List<Student> getStudentsSortedByCityAndName() {
 
-
         List<Student> allStudents = studentRepository.findAllStudents();
 
         return allStudents.stream()
