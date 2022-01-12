@@ -13,15 +13,8 @@ public class StudentService {
     }
 
     public List<Student> getStudentsSortedByCityAndName() {
-
         List<Student> allStudents = studentRepository.findAllStudents();
-
-
-        return allStudents.stream()
-                .sorted(Comparator.comparing(Student::getCity)
-                        .thenComparing(Student::getLastName)
-                        .thenComparing(Student::getFirstName))
-                .toList();
+        return allStudents.stream().sorted(Comparator.comparing(Student::getCity).thenComparing(Student::getLastName).thenComparing(Student::getFirstName)).toList();
 
     }
 }
