@@ -22,7 +22,7 @@ class StudentServiceTest {
     @BeforeAll
     static void beforeAll() throws IOException {
         final StudentsParser studentsParser = new CsvStudentsParserImpl();
-        try(InputStream studentsDataStream = Main.class.getResourceAsStream("/students.csv")) {
+        try (InputStream studentsDataStream = Main.class.getResourceAsStream("/students.csv")) {
             students = studentsParser.parseData(studentsDataStream);
         }
     }
@@ -38,33 +38,15 @@ class StudentServiceTest {
         var students = studentService.getStudentsSortedByCityAndName();
 
         //THEN
-        assertThat(students).first()
-                .extracting(Student::getCity)
-                .isEqualTo("Balice");
+        assertThat(students).first().extracting(Student::getCity).isEqualTo("Balice");
 
-        assertThat(students).last()
-                .extracting(Student::getCity)
-                .isEqualTo("Zabierzów");
+        assertThat(students).last().extracting(Student::getCity).isEqualTo("Zabierzów");
 
-        assertThat(students).extracting(Student::getId)
-                .containsExactly(
-                        "00002002",
-                        "00001001",
-                        "00002003",
-                        "00001298",
-                        "00001009",
-                        "00001004",
-                        "00001008",
-                        "00001007",
-                        "00001003",
-                        "00002005",
-                        "00001005",
-                        "00001002",
-                        "00002001",
-                        "00001006",
-                        "00002004"
-                );
+        assertThat(students).extracting(Student::getId).containsExactly("00002002", "00001001", "00002003", "00001298"
+                , "00001009", "00001004", "00001008", "00001007", "00001003", "00002005", "00001005", "00001002",
+                "00002001", "00001006", "00002004");
     }
+
 
     @Test
     void getStudentsSortedByAge() {
