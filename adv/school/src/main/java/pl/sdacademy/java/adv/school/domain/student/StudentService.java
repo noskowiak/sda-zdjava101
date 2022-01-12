@@ -16,12 +16,12 @@ public class StudentService {
 
         List<Student> allStudents = studentRepository.findAllStudents();
 
-        List<Student> lista = allStudents.stream()
+
+        return allStudents.stream()
                 .sorted(Comparator.comparing(Student::getCity)
                         .thenComparing(Student::getLastName)
                         .thenComparing(Student::getFirstName))
                 .toList();
-        return lista;
 
     }
 }
