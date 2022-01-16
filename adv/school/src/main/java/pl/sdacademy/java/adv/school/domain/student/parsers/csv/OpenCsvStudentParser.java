@@ -18,14 +18,14 @@ public class OpenCsvStudentParser extends AbstractCsvParser<Student> {
 
     //metoda przyjmuje stringa i ma stworzyć obiekt
     protected Optional<Student> parseRecord(String line) throws IOException {
-        String [] strings = CSV_PARSER.parseLine(line);
+        String[] strings = CSV_PARSER.parseLine(line);
 
-        if(strings.length!=10){
+        if (strings.length != 10) {
             LOGGER.warn("Skipped line: {}", line);
             return Optional.empty();
         }
         Student student = new Student();
-        try{
+        try {
             student.setId(strings[0]);
             student.setLastName(strings[1]);
             student.setFirstName(strings[2]);
@@ -37,7 +37,7 @@ public class OpenCsvStudentParser extends AbstractCsvParser<Student> {
                     Integer.parseInt(strings[8]));
             student.setBirthDate(birthDate);
             student.setCity(strings[9]);
-        } catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("Parsing error", e);
             return Optional.empty();
         }

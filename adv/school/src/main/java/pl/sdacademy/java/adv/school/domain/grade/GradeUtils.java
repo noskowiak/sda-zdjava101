@@ -16,6 +16,7 @@ public class GradeUtils {
     /**
      * Wylicza średnią ważoną podanych ocen. Średnia jest wyliczana z dokładnością do <b>dwóch</b> miejsc po przecinku
      * i zaokrąglana w górę w standardowy sposób (sprawdź: {@link RoundingMode#HALF_UP}).
+     *
      * @param grades oceny, z których średnią należy wyliczyć.
      * @return {@code Optional} ze średnią ważoną lub <b>pusty</b> gdy:
      * suma wag jest mniejsza lub równa {@code 0} lub suma wyważonych ocen (po wymnożeniu z wagą) jest mniejsza od {@code 1}.

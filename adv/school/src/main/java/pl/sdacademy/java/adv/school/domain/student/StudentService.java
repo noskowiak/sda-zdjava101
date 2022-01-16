@@ -50,14 +50,14 @@ public class StudentService {
                 .collect(Collectors.toUnmodifiableList());
     }
 
-  public Map<String, List<Student>> getStudentsGroupedByCityAndSortedByName() {
+    public Map<String, List<Student>> getStudentsGroupedByCityAndSortedByName() {
 
-    Map<String, List<Student>> groupedStudents =
-        studentRepository.findAllStudents().stream()
-            .sorted(Comparator.comparing(Student::getLastName).thenComparing(Student::getFirstName))
-            .collect(Collectors.groupingBy(Student::getCity));
-    return groupedStudents;
-  }
+        Map<String, List<Student>> groupedStudents =
+                studentRepository.findAllStudents().stream()
+                        .sorted(Comparator.comparing(Student::getLastName).thenComparing(Student::getFirstName))
+                        .collect(Collectors.groupingBy(Student::getCity));
+        return groupedStudents;
+    }
 
     public Map<String, Student> getStudentsMappedByIdentifier() {
         return studentRepository.findAllStudents().stream()
@@ -68,9 +68,9 @@ public class StudentService {
     public Map<String, Student> getOldestStudentMappedByCity() {
         return studentRepository.findAllStudents().stream()
                 .collect(Collectors.toMap(Student::getCity, Function.identity(), (student1, student2) -> {
-                    if (student1.getBirthDate().isBefore(student2.getBirthDate())){
+                    if (student1.getBirthDate().isBefore(student2.getBirthDate())) {
                         return student1;
-                    } else{
+                    } else {
                         return student2;
                     }
                 }));
@@ -82,12 +82,12 @@ public class StudentService {
                         .groupingBy(student -> StringUtils.join(student.getSchoolYear(), student.getClassCode())));
     }
 
-    public Map<String, Long> getNumberOfStudentsMappedByCity(){
+    public Map<String, Long> getNumberOfStudentsMappedByCity() {
         return studentRepository.findAllStudents().stream()
                 .collect(Collectors.groupingBy(Student::getCity, Collectors.counting()));
     }
 
-    public Double getPercentOfStudentNotFromCity(String city){
+    public Double getPercentOfStudentNotFromCity(String city) {
         long numberOfStudentsNotFromCity = studentRepository.findAllStudents().stream()
                 .filter(student -> !student.getCity().equals(city))
                 .count();

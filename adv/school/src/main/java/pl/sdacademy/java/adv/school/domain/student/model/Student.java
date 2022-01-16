@@ -24,7 +24,7 @@ public class Student {
         this.city = city;
     }
 
-    public Student () {
+    public Student() {
     }
 
     public String getId() {
@@ -97,7 +97,7 @@ public class Student {
                 "id='" + id + '\'' +
                 ", name= '" + lastName + " " + firstName + '\'' +
                 ", startYear=" + startYear +
-                ", class=" + schoolYear  + classCode +
+                ", class=" + schoolYear + classCode +
                 ", birthDate=" + birthDate +
                 ", city='" + city + '\'' +
                 '}';

@@ -19,11 +19,10 @@ public class JsonStudentsParser implements RecordsParser<Student> {
     }
 
 
-
     @Override
     public List<Student> parseData(InputStream inputStream) throws IOException {
         objectMapper.registerModule(new JavaTimeModule());
-        Student[] jsonStudentsTable = objectMapper.readValue(inputStream,Student[].class);
+        Student[] jsonStudentsTable = objectMapper.readValue(inputStream, Student[].class);
         return Arrays.asList(jsonStudentsTable);
     }
 }
