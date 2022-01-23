@@ -9,6 +9,7 @@ import java.util.Objects;
  * implementacje innych metod (ważnych w sytuacjach, gdy obiekt ma być używany jako klucz w mapie)
  */
 public final class SchoolGroupToSubject {
+
     private final String schoolGroup;
     private final String subjectCode;
 
@@ -29,7 +30,7 @@ public final class SchoolGroupToSubject {
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || this.getClass() != o.getClass()) return false;
-        final SchoolGroupToSubject that = (SchoolGroupToSubject) o;
+        SchoolGroupToSubject that = (SchoolGroupToSubject) o;
         return Objects.equals(this.schoolGroup, that.schoolGroup) && Objects.equals(this.subjectCode, that.subjectCode);
     }
 
