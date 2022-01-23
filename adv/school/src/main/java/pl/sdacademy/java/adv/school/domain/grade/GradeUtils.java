@@ -20,6 +20,8 @@ public class GradeUtils {
      * @return {@code Optional} ze średnią ważoną lub <b>pusty</b> gdy:
      * suma wag jest mniejsza lub równa {@code 0} lub suma wyważonych ocen (po wymnożeniu z wagą) jest mniejsza od {@code 1}.
      */
+
+
     public static Optional<BigDecimal> gradesAverage(Collection<Grade> grades) {
         /*
         Zadanie to może zostać zrealizowane zarówno przy użyciu tradycyjnej pętli, jak i Stream API (zalecane!)
